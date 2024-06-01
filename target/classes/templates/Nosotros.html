@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Misión y Visión - Veterinaria</title>
+  <link rel="stylesheet" th:href="@{/css/index.css}">
+  <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            width: 80%;
+            max-width: 500px; /* Tamaño máximo de la tarjeta */
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+<header>
+  <nav>
+    <div class="logo"><strong>Tu</strong>Mascota</div>
+    <ul>
+      <li><a href="/">Inicio</a></li>
+      <li><a href="/nosotros">Nosotros</a></li>
+      <li><a href="/login">Login</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <div class="card">
+    <section class="content">
+      <h2>Misión y Visión</h2>
+      <div class="mission-vision">
+        <div class="mission">
+          <h3>Misión</h3>
+          <p>Nuestra misión es proporcionar atención veterinaria integral y de calidad, enfocada en el bienestar y la salud de las mascotas, brindando un servicio personalizado y profesional a nuestros clientes.</p>
+        </div>
+        <div class="vision">
+          <h3>Visión</h3>
+          <p>Nuestra visión es ser reconocidos como líderes en el cuidado de la salud animal, destacándonos por nuestra excelencia en el servicio, la innovación en nuestros tratamientos y la pasión por el bienestar de los animales.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+<footer>
+  <p>&copy; 2024 Veterinaria. Todos los derechos reservados.</p>
+</footer>
+</body>
+</html>
+

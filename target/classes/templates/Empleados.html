@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listado de Empleados</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    nav {
+      background-color: #009688;
+      color:white;
+    }
+
+    .nav-brand , .nav-link {
+      text-decoration:none
+    }
+
+    thead {
+      background-color: #009688;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+<!-- Header con el botón de salir -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <span class="navbar-brand">Admin</span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto"> <!-- Agregado -->
+        <li class="nav-item">
+          <a class="nav-link" href="/usuarios/admin/view">Usuarios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/empleados/admin">Empleados</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/citas/admin">Citas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/">Salir</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container mt-5">
+  <h2>Listado de Empleados</h2>
+  <a href="/empleados/admin/new" class="btn btn-primary">Nuevo Empleado</a>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Cargo</th>
+      <th scope="col">Fecha de Contratación</th>
+      <th scope="col">Horario de Trabajo</th>
+      <th scope="col">Especialización</th>
+      <th scope="col">Usuario</th>
+      <th scope="col">Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="empleado : ${empleados}">
+      <td th:text="${empleado.cargo}">Cargo</td>
+      <td th:text="${empleado.fechaContratacion}">Fecha de Contratación</td>
+      <td th:text="${empleado.horarioTrabajo}">Horario de Trabajo</td>
+      <td th:text="${empleado.especializacion}">Especialización</td>
+      <td th:text="${empleado.user.nombres + ' ' + empleado.user.apellidos}">Usuario</td>
+      <td>
+        <a th:href="@{/empleados/admin/edit/{id}(id=${empleado.id})}" class="btn btn-primary">Editar</a>
+        <a th:href="@{/empleados/admin/delete/{id}(id=${empleado.id})}" class="btn btn-danger">Eliminar</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
