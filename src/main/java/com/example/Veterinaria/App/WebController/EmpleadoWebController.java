@@ -24,7 +24,7 @@ public class EmpleadoWebController {
     @GetMapping("/admin")
     public String listEmpleados(Model model) {
         model.addAttribute("empleados", empleadoRepository.findAll());
-        return "empleados";
+        return "Empleados";
     }
 
     @GetMapping("/admin/new")
