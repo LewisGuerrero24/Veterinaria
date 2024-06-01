@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listado de Citas</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    nav {
+      background-color: #009688;
+      color: white;
+    }
+    .nav-brand, .nav-link {
+      text-decoration: none;
+    }
+    thead {
+      background-color: #009688;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+<!-- Header con el botón de salir -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <span class="navbar-brand">Veterinario</span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/usuarios/Empleado/view/{id}(id=${IdEmpleado})}">Volver</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5">
+  <h2>Listado de Citas</h2>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Hora</th>
+      <th>Veterinario</th>
+      <th>Cliente</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="cita : ${citas}">
+      <td th:text="${cita.fecha}">Fecha</td>
+      <td th:text="${cita.hora}">Hora</td>
+      <td th:text="${cita.veterinario.user.nombres + ' ' + cita.veterinario.user.apellidos}">Veterinario</td>
+      <td th:text="${cita.cliente.nombres + ' ' + cita.cliente.apellidos}">Cliente</td>
+
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  Veterinaria:
+    image: veterinaria:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8093:8093"
+    environment:
+      - SPRING_DATA_MONGODB_URI:mongodb+srv://silvianatalia081:uts123@bdajurado.bjgtf6u.mongodb.net/Veterinaria

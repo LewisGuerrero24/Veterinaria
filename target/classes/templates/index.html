@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veterinaria</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+</head>
+<body>
+<header>
+    <nav>
+        <div class="logo"><strong>Tu</strong>Mascota</div>
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/nosotros">Nosotros</a></li>
+            <li><a href="/login">Login</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section class="hero">
+        <div class="hero-information">
+            <h1>Bienvenidos a nuestra Veterinaria</h1>
+            <p>Nos preocupamos por la salud y el bienestar de tus mascotas</p>
+        </div>
+        <div class="hero-img">
+            <img src="/img/Veterinaria-main.jpg" alt="Flowers in Chania">
+        </div>
+    </section>
+    <section class="content">
+        <h2>Nuestros Servicios</h2>
+        <div class="card-container">
+            <div class="card">
+                <img src="/img/consultas.jpg" alt="Servicio 1">
+                <div class="card-info">
+                    <h3>Consultas</h3>
+                    <p>Aparta una consulta con nosotros</p>
+                    <button>Ver más</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="/img/peluqueria.jpg" alt="Servicio 2">
+                <div class="card-info">
+                    <h3>Peluqueria</h3>
+                    <p>Servicio de belleza para tus mascotas</p>
+                    <button>Ver más</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="/img/Vacunacion.jpg" alt="Servicio 3">
+                <div class="card-info">
+                    <h3>Examenes de Laboratorio</h3>
+                    <p>Informate de nuestras jornadas de vacunacion y examenes</p>
+                    <button>Ver más</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+<footer>
+    <p>&copy; 2024 Veterinaria. Todos los derechos reservados.</p>
+</footer>
+</body>
+</html>
