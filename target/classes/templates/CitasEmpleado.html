@@ -53,10 +53,10 @@
     </thead>
     <tbody>
     <tr th:each="cita : ${citas}">
-      <td th:text="${cita.fecha}">Fecha</td>
-      <td th:text="${cita.hora}">Hora</td>
-      <td th:text="${cita.veterinario.user.nombres + ' ' + cita.veterinario.user.apellidos}">Veterinario</td>
-      <td th:text="${cita.cliente.nombres + ' ' + cita.cliente.apellidos}">Cliente</td>
+      <td th:if="${cita.cliente.nombres != 'Sin Usuario'}" th:text="${cita.fecha}">Fecha</td>
+      <td th:if="${cita.cliente.nombres != 'Sin Usuario'}" th:text="${cita.hora}">Hora</td>
+      <td th:if="${cita.cliente.nombres != 'Sin Usuario'}" th:text="${cita.veterinario.user.nombres + ' ' + cita.veterinario.user.apellidos}">Veterinario</td>
+      <td th:if="${cita.cliente.nombres != 'Sin Usuario'}" th:text="${cita.cliente.nombres + ' ' + cita.cliente.apellidos}">Cliente</td>
 
     </tr>
     </tbody>
