@@ -6,9 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.util.Date;
 
 @Document(collection = "Citas")
 public class Cita {
@@ -19,28 +17,28 @@ public class Cita {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate fecha;
 
-    private LocalTime Hora;
+    private LocalTime hora;
 
     private Empleado veterinario;
 
-    private Usuario cliente = null;
+    private Usuario cliente;
+
+    private TipoCitas tipoCitas;
 
     // Constructor por defecto
     public Cita() {}
 
     // Constructor con parámetros
-
-    public Cita(String id, LocalDate fecha, LocalTime hora, Empleado veterinario, Usuario cliente) {
+    public Cita(String id, LocalDate fecha, LocalTime hora, Empleado veterinario, Usuario cliente, TipoCitas tipoCitas) {
         this.id = id;
         this.fecha = fecha;
-        Hora = hora;
+        this.hora = hora;
         this.veterinario = veterinario;
         this.cliente = cliente;
+        this.tipoCitas = tipoCitas;
     }
 
-
     // Getters y Setters
-
 
     public String getId() {
         return id;
@@ -59,11 +57,11 @@ public class Cita {
     }
 
     public LocalTime getHora() {
-        return Hora;
+        return hora;
     }
 
     public void setHora(LocalTime hora) {
-        Hora = hora;
+        this.hora = hora;
     }
 
     public Empleado getVeterinario() {
@@ -80,5 +78,13 @@ public class Cita {
 
     public void setCliente(Usuario cliente) {
         this.cliente = cliente;
+    }
+
+    public TipoCitas getTipoCitas() {
+        return tipoCitas;
+    }
+
+    public void setTipoCitas(TipoCitas tipoCitas) {
+        this.tipoCitas = tipoCitas;
     }
 }

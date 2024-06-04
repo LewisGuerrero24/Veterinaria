@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Lista de Exámenes</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+        nav {
+            background-color: #009688;
+            color: white;
+        }
+
+        .nav-brand, .nav-link {
+            text-decoration: none
+        }
+
+        thead {
+            background-color: #009688;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<!-- Header con el botón de salir -->
+<nav class="navbar navbar-expand-lg ">
+  <div class="container">
+    <span class="navbar-brand">Cliente</span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/usuarios/cliente/view/{id}(id=${idempleado})}">Volver</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container mt-5">
+<h1>Lista de Exámenes</h1>
+<table class="table ">
+  <thead>
+  <tr>
+    <th>Nombre Mascota</th>
+    <th>Tipo de Examen</th>
+    <th>Fecha de Examen</th>
+    <th>Resultado</th>
+    <th>Empleado Responsable</th>
+    <th>Usuario Asociado</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="examen : ${examenes}">
+    <td th:text="${examen.nombreMascota}">Nombre Mascota</td>
+    <td th:text="${examen.tipoExamen}">Tipo de Examen</td>
+    <td th:text="${examen.fechaExamen}">Fecha de Examen</td>
+    <td th:text="${examen.resultado}">Resultado</td>
+    <td th:text="${examen.empleadoResponsable.user.nombres} + ' ' + ${examen.empleadoResponsable.user.apellidos}">Empleado</td>
+    <td th:text="${examen.usuarioAsociado.nombres} + ' ' + ${examen.usuarioAsociado.apellidos}">Usuario</td>
+  </tr>
+  </tbody>
+</table>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+

@@ -53,6 +53,7 @@
       <th>Fecha</th>
       <th>Hora</th>
       <th>Veterinario</th>
+      <th >Tipo</th>
       <th>Acción</th>
     </tr>
     </thead>
@@ -61,6 +62,7 @@
       <td th:if="${cita.cliente.nombres == 'Sin Usuario'}" th:text="${cita.fecha}">Fecha</td>
       <td th:if="${cita.cliente.nombres == 'Sin Usuario'}" th:text="${cita.hora}">Hora</td>
       <td th:if="${cita.cliente.nombres == 'Sin Usuario'}" th:text="${cita.veterinario.user.nombres + ' ' + cita.veterinario.user.apellidos}">Veterinario</td>
+      <td th:if="${cita.cliente.nombres == 'Sin Usuario'}" th:text="${cita.tipoCitas}">Tipo</td>
       <td th:if="${cita.cliente.nombres == 'Sin Usuario'}">
         <form th:action="@{/citas/seleccionarCliente/{id}(id=${UsuarioId})}" method="post">
         <input type="hidden" name="citaId" th:value="${cita.id}">

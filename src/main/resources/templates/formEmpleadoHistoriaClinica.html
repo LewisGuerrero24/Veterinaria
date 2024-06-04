@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario de Historia Clínica</title>
+    <!-- Agregar los enlaces a los archivos CSS de Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1 th:text="${historiaClinica.id != null} ? 'Editar Historia Clínica' : 'Crear Nueva Historia Clínica'"
+        class="mt-5 mb-4"></h1>
+    <form th:action="@{${historiaClinica.id != null} ? '/historias-clinicas/actualizar/' + ${historiaClinica.id}+'/'+${idempleado} : '/historias-clinicas/empleado/' + ${idempleado}}"
+          th:object="${historiaClinica}" method="post">
+        <div class="form-group">
+            <label for="cliente">Cliente</label>
+            <select id="cliente" th:field="*{cliente.id}" class="form-control">
+                <option th:each="cliente : ${clientes}" th:value="${cliente.id}" th:text="${cliente.nombres}"></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="veterinario">Veterinario</label>
+            <select id="veterinario" th:field="*{veterinario.id}" class="form-control">
+                <option th:each="veterinario : ${veterinarios}" th:value="${veterinario.id}"
+                        th:text="${veterinario.user.nombres+' '+veterinario.user.apellidos}"></option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" th:field="*{fecha}" class="form-control" required/>
+        </div>
+        <div class="form-group">
+            <label for="descripcion">Descripción:</label>
+            <textarea id="descripcion" th:field="*{descripcion}" placeholder="Descripción de la consulta"
+                      class="form-control" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="tratamientos">Tratamientos:</label>
+            <textarea id="tratamientos" th:field="*{tratamientos}" placeholder="Tratamientos aplicados"
+                      class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="observaciones">Observaciones:</label>
+            <textarea id="observaciones" th:field="*{observaciones}" placeholder="Observaciones adicionales"
+                      class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

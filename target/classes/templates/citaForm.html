@@ -38,6 +38,16 @@
       </div>
     </div>
     <div class="form-group">
+      <label for="tipoCitas">Tipo de Cita:</label>
+      <select class="form-control" id="tipoCitas" th:field="*{tipoCitas}" required>
+        <option value="PELUQUERIA">Peluquería</option>
+        <option value="CONSULTA">Consulta</option>
+      </select>
+      <div class="invalid-feedback">
+        Por favor, seleccione un tipo de cita.
+      </div>
+    </div>
+    <div class="form-group">
       <label for="veterinario">Veterinario:</label>
       <select class="form-control" id="veterinario" th:field="*{veterinario.id}" required>
         <option th:each="veterinario : ${veterinarios}" th:value="${veterinario.id}" th:text="${veterinario.user.nombres + ' ' + veterinario.user.apellidos}"></option>

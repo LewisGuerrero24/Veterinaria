@@ -55,7 +55,7 @@
             </a>
         </div>
         <div class="col-md-3 mb-3">
-            <a th:href="@{/ruta-citas}" class="card-link">
+            <a th:href="@{/historias-clinicas/empleado/{id}(id=${IdEmpleado})}" class="card-link">
                 <div class="card">
                     <img src="/img/citas.png" class="card-img-top" alt="Lista de Citas">
                     <div class="card-body">
@@ -66,7 +66,7 @@
             </a>
         </div>
         <div class="col-md-3 mb-3">
-            <a th:href="@{/ruta-examenes}" class="card-link">
+            <a th:href="@{/examenes/empleado/{id}(id=${IdEmpleado})}" class="card-link">
                 <div class="card">
                     <img src="/img/examenes.jpg" class="card-img-top" alt="Exámenes">
                     <div class="card-body">

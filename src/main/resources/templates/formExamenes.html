@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Formulario de Examen</title>
+</head>
+<body>
+<h1 th:text="${examen.id == null} ? 'Crear Examen' : 'Editar Examen'"></h1>
+<form th:action="${examen.id == null} ? '/examenes/crear' : '/examenes/actualizar/' + ${examen.id}" th:object="${examen}" method="post">
+    <div class="form-group">
+        <label for="nombreMascota">Nombre Mascota</label>
+        <input type="text" id="nombreMascota" th:field="*{nombreMascota}" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="tipoExamen">Tipo de Examen</label>
+        <input type="text" id="tipoExamen" th:field="*{tipoExamen}" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="fechaExamen">Fecha de Examen</label>
+        <input type="date" id="fechaExamen" th:field="*{fechaExamen}" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="resultado">Resultado</label>
+        <input type="text" id="resultado" th:field="*{resultado}" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="empleadoResponsable">Empleado Responsable</label>
+        <select id="empleadoResponsable" th:field="*{empleadoResponsable.id}" class="form-control">
+            <option th:each="empleado : ${empleados}" th:value="${empleado.id}"
+                    th:text="${empleado.user.nombres + ' ' + empleado.user.apellidos}"></option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="usuarioAsociado">Usuario Asociado</label>
+        <select id="usuarioAsociado" th:field="*{usuarioAsociado.id}" class="form-control">
+            <option th:each="usuario : ${usuarios}" th:value="${usuario.id}"
+                    th:text="${usuario.nombres + ' ' + usuario.apellidos}"></option>
+        </select>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </div>
+</form>
+<a href="/examenes">Volver a la lista</a>
+</body>
+</html>
+
+

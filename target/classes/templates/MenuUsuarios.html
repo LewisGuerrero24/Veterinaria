@@ -55,29 +55,18 @@
             </a>
         </div>
         <div class="col-md-3 mb-3">
-            <a th:href="@{/ruta-peluqueria}" class="card-link">
-                <div class="card">
-                    <img src="/img/peluqueria.jpg" class="card-img-top" alt="Peluquería">
-                    <div class="card-body">
-                        <h5 class="card-title">Peluquería</h5>
-                        <p class="card-text">Agenda una cita para el cuidado y estética de tu mascota.</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="col-md-3 mb-3">
-            <a th:href="@{/ruta-citas}" class="card-link">
+            <a th:href="@{/historias-clinicas/cliente/{id}(id=${IdUsuario})}" class="card-link">
                 <div class="card">
                     <img src="/img/citas.png" class="card-img-top" alt="Lista de Citas">
                     <div class="card-body">
-                        <h5 class="card-title">Lista de Citas</h5>
-                        <p class="card-text">Consulta tus citas programadas.</p>
+                        <h5 class="card-title">Historias Clinicas</h5>
+                        <p class="card-text">Consulta la lista de historias clinicas.</p>
                     </div>
                 </div>
             </a>
         </div>
         <div class="col-md-3 mb-3">
-            <a th:href="@{/ruta-examenes}" class="card-link">
+            <a th:href="@{/examenes/cliente/{id}(id=${IdUsuario})}" class="card-link">
                 <div class="card">
                     <img src="/img/examenes.jpg" class="card-img-top" alt="Exámenes">
                     <div class="card-body">

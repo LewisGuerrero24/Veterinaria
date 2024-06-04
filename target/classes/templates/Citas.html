@@ -22,7 +22,7 @@
 </head>
 <body>
 <!-- Header con el botón de salir -->
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg ">
     <div class="container">
         <span class="navbar-brand">Admin</span>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -41,6 +41,13 @@
                     <a class="nav-link" href="/citas/admin">Citas</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/historias-clinicas">Historia Clinica</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/examenes">Laboratorio</a>
+                </li>
+
+                <li class="nav-item">
                     <a class="nav-link" href="/">Salir</a>
                 </li>
             </ul>
@@ -57,6 +64,7 @@
             <th scope="col">Fecha</th>
             <th scope="col">Hora</th>
             <th scope="col">Veterinario</th>
+            <th scope="col">Tipo</th>
             <th scope="col">Cliente</th>
             <th scope="col">Acciones</th>
         </tr>
@@ -66,6 +74,8 @@
             <td th:text="${cita.fecha}">Fecha</td>
             <td th:text="${cita.hora}">Hora</td>
             <td th:text="${cita.veterinario.user.nombres + ' ' + cita.veterinario.user.apellidos}">Veterinario</td>
+            <td th:text="${cita.tipoCitas}">Tipo</td>
+
             <td th:text="${cita.cliente.nombres + ' ' + cita.cliente.apellidos}">Cliente</td>
             <td>
                 <a th:href="@{/citas/admin/edit/{id}(id=${cita.id})}" class="btn btn-primary">Editar</a>
