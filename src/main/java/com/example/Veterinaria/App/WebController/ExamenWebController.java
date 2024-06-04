@@ -69,8 +69,9 @@ public class ExamenWebController {
     //crear empleado
     @GetMapping("/empleado/crear/{idempleado}")
     public String mostrarFormularioCrearEmpleado(@PathVariable("idempleado")String idempleado,Model model) {
-        model.addAttribute("idempleado", idempleado);
+
         model.addAttribute("examen", new Examen());
+        model.addAttribute("idempleado", idempleado);
         model.addAttribute("usuarios", usuarioRepository.findByRol(Rol.CLIENTE));
         model.addAttribute("empleados", empleadoRepository.findAll());
         return "formExamenesEmpleado";

@@ -44,8 +44,7 @@
 
 <div class="container mt-5">
   <h1>Lista de Exámenes</h1>
-<a href="@{/examenes/empleado/crear/{id}(id=${idempleado})}" class="btn btn-primary">Crear Nuevo Examen</a>
-<table class="table">
+  <a th:href="@{/examenes/empleado/crear/{idempleado}(idempleado=${idempleado})}" class="btn btn-primary">Crear Nuevo Examen</a><table class="table">
   <thead>
   <tr>
     <th>Nombre Mascota</th>

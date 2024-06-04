@@ -35,9 +35,12 @@ public class HistoriaClinicaWebController {
 
     //Empleado Listar
     @GetMapping("/empleado/{id}")
-    public String listarHistoriasClinicasEmpleados(@PathVariable("id")String id,Model model) {
+    public String listarHistoriasClinicasEmpleados(@PathVariable("id") String id,Model model) {
+        System.out.println("mi Id es = "+id);
         Optional<Usuario> userEmpleado = usuarioRepository.findById(id);
+        System.out.println(userEmpleado.get());
         Optional<Empleado> empleado  = empleadoRepository.findByUser(userEmpleado.get());
+        System.out.println(empleado.get());
         List<HistoriaClinica> historiasClinicas = historiaClinicaRepository.findByVeterinario(empleado.get());
         model.addAttribute("idempleado", id);
         model.addAttribute("historiasClinicas", historiasClinicas);
@@ -99,7 +102,7 @@ public class HistoriaClinicaWebController {
         historiaClinica.setVeterinario(veterinario);
 
         historiaClinicaRepository.save(historiaClinica);
-        return "redirect:/historias-clinicas/empleado"+idempleado;
+        return "redirect:/historias-clinicas/empleado/"+idempleado;
     }
 
     //formulario editar administrador

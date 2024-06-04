@@ -7,8 +7,7 @@
 </head>
 <body>
 <div class="container">
-    <h1 th:text="${historiaClinica.id != null} ? 'Editar Historia Clínica' : 'Crear Nueva Historia Clínica'"
-        class="mt-5 mb-4"></h1>
+    <h1 th:text="${historiaClinica.id != null} ? 'Editar Historia Clínica' : 'Crear Nueva Historia Clínica'"></h1>
     <form th:action="@{${historiaClinica.id != null} ? '/historias-clinicas/actualizar/' + ${historiaClinica.id}+'/'+${idempleado} : '/historias-clinicas/empleado/' + ${idempleado}}"
           th:object="${historiaClinica}" method="post">
         <div class="form-group">
@@ -21,8 +20,7 @@
         <div class="form-group">
             <label for="veterinario">Veterinario</label>
             <select id="veterinario" th:field="*{veterinario.id}" class="form-control">
-                <option th:each="veterinario : ${veterinarios}" th:value="${veterinario.id}"
-                        th:text="${veterinario.user.nombres+' '+veterinario.user.apellidos}"></option>
+                <option th:each="veterinario : ${veterinarios}" th:value="${veterinario.id}" th:text="${veterinario.user.nombres+' '+veterinario.user.apellidos}"></option>
             </select>
         </div>
         <div class="form-group">
