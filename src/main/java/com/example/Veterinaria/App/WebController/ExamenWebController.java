@@ -33,7 +33,7 @@ public class ExamenWebController {
     public String listarExamenes(Model model) {
         List<Examen> examenes = examenRepository.findAll();
         model.addAttribute("examenes", examenes);
-        return "listExamenes";
+        return "ListExamenes";
     }
 
     //lista empleados
@@ -44,7 +44,7 @@ public class ExamenWebController {
         List<Examen> examenes = examenRepository.findByEmpleadoResponsable(empleado.get());
         model.addAttribute("idempleado", idempleado);
         model.addAttribute("examenes", examenes);
-        return "listExamenesEmpleado";
+        return "ListExamenesEmpleado";
     }
 
     //ListaCliente
@@ -54,7 +54,7 @@ public class ExamenWebController {
         List<Examen> examenes = examenRepository.findByUsuarioAsociado(user.get());
         model.addAttribute("idempleado", idcliente);
         model.addAttribute("examenes", examenes);
-        return "listExamenesCliente";
+        return "ListExamenesCliente";
     }
 
     //Crear Admin
