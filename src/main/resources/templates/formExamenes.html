@@ -2,8 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Formulario de Examen</title>
+    <!-- Agregar los enlaces a los archivos CSS de Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+<div class="container">
 <h1 th:text="${examen.id == null} ? 'Crear Examen' : 'Editar Examen'"></h1>
 <form th:action="${examen.id == null} ? '/examenes/crear' : '/examenes/actualizar/' + ${examen.id}" th:object="${examen}" method="post">
     <div class="form-group">
@@ -41,6 +44,11 @@
     </div>
 </form>
 <a href="/examenes">Volver a la lista</a>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 </html>
 
